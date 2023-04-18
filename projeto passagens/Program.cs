@@ -20,10 +20,12 @@ while (senhalogin != "123456")
 Console.ForegroundColor = ConsoleColor.Green;
 Console.WriteLine($"Acesso Liberado!");
 Console.ResetColor();
+Console.ForegroundColor = ConsoleColor.White;
 Console.WriteLine(@$"
 1- Cadastrar passagem
 2- Listar Passagens
 0- Sair");
+Console.ResetColor();
 string cadastrar = Console.ReadLine();
 
 string[] nome = new string[5];
@@ -33,9 +35,11 @@ string[] data = new string[5];
 
 if (cadastrar == "1")
 {
-    for (var i = 0; i < 3; i++)
+    for (var i = 0; i < 5; i++)
     {
+        Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine($"Cadastre o {i + 1}º Passageiro");
+        Console.ResetColor();
         Console.WriteLine($"Nome do {i + 1}º passageiro");
         nome[i] = Console.ReadLine();
         Console.WriteLine($"Origem do {i + 1}º passageiro");
@@ -47,8 +51,8 @@ if (cadastrar == "1")
         Console.WriteLine($"");
     }
     Console.BackgroundColor = ConsoleColor.DarkYellow;
-Console.WriteLine($"Passageiros cadastrados");
-Console.ResetColor();
+    Console.WriteLine($"Passageiros cadastrados");
+    Console.ResetColor();
 }
 
 
@@ -58,18 +62,20 @@ Console.WriteLine(@$"
 0- Sair");
 string cadastrar2 = Console.ReadLine();
 
-if (cadastrar2 == "2" || cadastrar == "2")
+if (cadastrar2 == "2" || cadastrar == "3")
 {
-    for (var i = 0; i < 2; i++)
+    for (var i = 0; i < 5; i++)
     {
-        Console.WriteLine($"Cadastro do {i + 1}º passageiro");
-
-        Console.WriteLine($"Nome do {i + 1}º passageiro é: {nome[i]} ");
-        Console.WriteLine($"O local de origem do {i + 1}º passageiro é: {origem[i]}");
-        Console.WriteLine($"O local de destino do {i + 1}º passageiro é: {destino[i]}");
-        Console.WriteLine($"A data do voo do {i + 1}º é: {data[i]}");
-        Console.WriteLine($"");
-
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine(@$"
+        --------------------------------|
+    |  Passagem do {i + 1}º passageiro  |
+    |  Nome: {nome[i]}                  | 
+    |  Local de origem: {origem[i]}     |
+    |  Local de destino: {destino[i]}   |
+    |  Data do voo: {data[i]}            vc|
+        ");
+        Console.ResetColor();
     }
 
 }
